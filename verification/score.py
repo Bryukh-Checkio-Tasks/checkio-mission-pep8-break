@@ -1,17 +1,35 @@
 from checkio.referees.io import CheckiOReferee
 from checkio import api
 
+import pep8_157 as pep8
+import sys
+
+
 def count_pep8(code):
-    return 1
+    pep8style = pep8.StyleGuide(parse_argv=False, config_file=False, max_line_length=79)
+    options = pep8style.options
+    sys.stdout = None
+    raw_lines = code.splitlines()
+    lines = [l + "\n" for l in raw_lines[:-1]] + raw_lines[-1:]
+    checker = pep8.Checker(lines=lines, options=options)
+    checker.check_all()
+    report = checker.report
+    sys.stdout = sys.__stdout__
+
+    result = []
+    score = 0
 
 
+    for line_number, offset, error_code, text, doc in report._deferred_print:
+        result.append([line_number, offset, error_code, text])
+        if error_code.startswith("E"):
+            score += 2
+        elif error_code.startswith("W"):
+            score += 1
+    return score, result
 
-class CheckioRefereeGolf(CheckiOReferee):
 
-    def __init__(self, max_length, **kwargs):
-        self.max_length = max_length
-        super().__init__(**kwargs)
-
+class CheckioRefereePep8(CheckiOReferee):
     def check_current_test(self, data):
         if self.inspector:
             inspector_result, inspector_result_addon = self.inspector(self.code, self.runner)
@@ -37,12 +55,7 @@ class CheckioRefereeGolf(CheckiOReferee):
             if self.next_env():
                 self.restart_env()
             else:
-                code_len = len(self.code)
-                if code_len >= self.max_length:
-                    message = "Your code is correct, but this is too long ({}) for any points".format(code_len)
-                    self.current_test["inspector_result_addon"] = message
-                    self.current_test["inspector_fail"] = True
-                    api.request_write_ext(self.current_test)
-                    return api.fail(0, message)
-                else:
-                    api.success(count_pep8(self.code))
+                score, pep8_results = count_pep8(self.code)
+                api.request_write_in("FINAL", "req")
+                api.request_write_ext({"result": True, "check_data": pep8_results})
+                api.success(score)

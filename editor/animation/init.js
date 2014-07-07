@@ -40,12 +40,12 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             }
 
             //YOUR FUNCTION NAME
-            var fname = 'checkio';
+            var fname = 'twist';
 
             var checkioInput = data.in;
-            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput)  + ')';
+            var checkioInputStr = fname + '(' + JSON.stringify(checkioInput) + ')';
 
-            var failError = function(dError) {
+            var failError = function (dError) {
                 $content.find('.call').html('Fail: ' + checkioInputStr);
                 $content.find('.output').html(dError.replace(/\n/g, ","));
 
@@ -75,30 +75,41 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             //if you need additional info from tests (if exists)
             var explanation = data.ext["explanation"];
 
-            $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
-
-            if (!result) {
-                $content.find('.call').html('Fail: ' + checkioInputStr);
-                $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
-                $content.find('.answer').addClass('error');
-                $content.find('.output').addClass('error');
-                $content.find('.call').addClass('error');
+            if (checkioInput === "FINAL") {
+                var checkResult = data.ext["check_data"];
+                $content.find('.output').html('&nbsp;Your results:');
+                $content.find('.answer').remove();
+                $content.find('.output').remove();
+                $content.find('.call').remove();
+                var $table = $content.find(".explanation table");
+                for (var i = 0; i < checkResult.length; i++) {
+                    var $tr = $("<tr></tr>");
+                    for (var j = 0; j < 4; j++) {
+                        $tr.append($("<td></td>").text(checkResult[i][j]));
+                    }
+                    $table.append($tr);
+                }
+                this_e.setAnimationHeight($content.height() + 80);
             }
             else {
-                $content.find('.call').html('Pass: ' + checkioInputStr);
-                $content.find('.answer').remove();
+
+                $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
+                $content.find('.explanation').remove();
+                if (!result) {
+                    $content.find('.call').html('Fail: ' + checkioInputStr);
+                    $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
+                    $content.find('.answer').addClass('error');
+                    $content.find('.output').addClass('error');
+                    $content.find('.call').addClass('error');
+                }
+                else {
+                    $content.find('.call').html('Pass: ' + checkioInputStr);
+                    $content.find('.answer').remove();
+                }
+                this_e.setAnimationHeight($content.height() + 60);
             }
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
 
-
-            this_e.setAnimationHeight($content.height() + 60);
 
         });
 
