@@ -43,6 +43,7 @@
             <li>"[" &hArr; "]"</li>
             <li>"&lt;" &hArr; "&gt;"</li>
             <li>"@" &hArr; "#"</li>
+            <li>";" &hArr; ":"</li>
         </ul>
     </li>
     <li>
@@ -68,8 +69,8 @@
     <pre class="brush: python">
 twist("Hello World!") == "OLLEh DLROw?"
 twist("I'm 1st") == "i'M 8TS"
-twist("How are you? 905th.") == "WOh ERA UOY! 094,"
-twist("The code - ([{&lt;#&gt;}])") == "EHt EDOC - )]}&gt;@&lt;{[("
+twist("How are you? 905th.") == "WOh ERA UOY! 094HT,"
+twist("The code - ([{&lt;;#&gt;}])") == "EHt EDOC - )]}&gt;:@&lt;{[("
 twist("EMAIL        a@b.ru") == "liame A#B,UR"
 twist(";-) 0_0 @__@") == ":-( 9_9 #__#"
     </pre>
