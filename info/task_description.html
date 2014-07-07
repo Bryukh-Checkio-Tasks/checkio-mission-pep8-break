@@ -1,44 +1,86 @@
 <p>
-    <i>( Describe task in general )</i>
+    For Stephan is hard to read an twisted text.
+    So Nicola and Sophia created the simple encoding rules for messages which should be hidden from Stephan.
+    Let's realize their algorithm.
 </p>
 
 <p>
-    Sum two passed ints
+    You are given a text. Words contain only letters, numbers only digits.
+    So "2045th" is two constructions - the number 2045 and the word "th".
+    Words/numbers can be separated by whitespaces and punctuation symbols <strong>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</strong>.
+    The text has only one line without newlines.
 </p>
 
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
 
-<p><i>( Explain input and output values )</i></p>
+<style>
+    .rules li {
+        margin: 3px 0 3px 20px;
+        list-style: disc;
+    }
+    .rules li ul li{
+        list-style: square;
+    }
+
+</style>
+<ul class="rules">
+    Here are the rules:
+    <li>
+        Reverse each word<br> "Hello". &rArr; "olleH".
+    </li>
+    <li>
+        Swap letter case, uppercase to lowercase and versus.<br> "AsD" &rArr; "aSd".
+    </li>
+    <li>
+        Change each digit in numbers to the difference between 9 and the digit.<br> "140" &rArr; "859" (9-1=8, 9-4=5, 9-0=9).
+    </li>
+    <li>
+        Replace some punctuation symbols to each other with the follow list:
+        <ul>
+            <li>"," &hArr; "."</li>
+            <li>"!" &hArr; "?"</li>
+            <li>"(" &hArr; ")"</li>
+            <li>"{" &hArr; "}"</li>
+            <li>"[" &hArr; "]"</li>
+            <li>"&lt;" &hArr; "&gt;"</li>
+            <li>"@" &hArr; "#"</li>
+        </ul>
+    </li>
+    <li>
+        Truncate several consecutive whitespaces in one.<br> "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" &rArr; "&nbsp;".
+    </li>
+
+</ul>
+
 <p>
-    <strong>Input: </strong> Two arguments. Both are int
+    <strong>Input: </strong> A text as a string.
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> The twisted text as a string.
 </p>
 
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
+twist("Hello World!") == "OLLEh DLROw?"
+twist("I'm 1st") == "i'M 8TS"
+twist("How are you? 905th.") == "WOh ERA UOY! 094,"
+twist("The code - ([{&lt;#&gt;}])") == "EHt EDOC - )]}&gt;@&lt;{[("
+twist("EMAIL        a@b.ru") == "liame A#B,UR"
+twist(";-) 0_0 @__@") == ":-( 9_9 #__#"
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    Let's look at PEP8 more careful and examine the checking module for this.
 </p>
 
 <p>
-    <strong>Precondition:</strong>
-    <i>Constraints for Input</i>
+    <strong>Precondition:</strong><br>
+    0 &le; text &lt; 1000
 </p>

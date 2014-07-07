@@ -1923,9 +1923,8 @@ def _main():
     pep8style = StyleGuide(parse_argv=True, config_file=True)
     options = pep8style.options
     if options.doctest or options.testsuite:
-        pass
-        #from testsuite.support import run_tests
-        #report = run_tests(pep8style)
+        from testsuite.support import run_tests
+        report = run_tests(pep8style)
     else:
         report = pep8style.check_files()
     if options.statistics:
