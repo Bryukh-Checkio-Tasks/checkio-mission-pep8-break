@@ -9,6 +9,7 @@
     So "2045th" is two constructions - the number 2045 and the word "th".
     Words/numbers can be separated by whitespaces and punctuation symbols <strong>!#$%&()*+,-./:;<=>?@[\]^_`{|}~</strong>.
     The text has only one line without newlines.
+    You should encode and twist the text with the next rules:
 </p>
 
 
@@ -23,7 +24,6 @@
 
 </style>
 <ul class="rules">
-    Here are the rules:
     <li>
         Reverse each word<br> "Hello". &rArr; "olleH".
     </li>
@@ -52,6 +52,19 @@
 
 </ul>
 
+<p>
+    But one restriction. Your code should have no more than 10 lines with no more than 80 symbols in each line.
+    "\t" is counted as 4 symbols.
+</p>
+
+<p>
+    And the main goal and fun. In this mission yoo should get the maximum PEP8 errors.
+
+    We will check your code with the <a href="https://github.com/jcrocholl/pep8/releases/tag/1.5.7">pep8 module</a>
+    (version 1.5.7). So the PEP8 requirements are not too important here. Look at the module, it's more important for this mission.
+    <br>
+    For each error ("EXYZ") you will get 2 points, for each warning ("WXYZ") -- 1 points.
+</p>
 <p>
     <strong>Input: </strong> A text as a string.
 </p>
