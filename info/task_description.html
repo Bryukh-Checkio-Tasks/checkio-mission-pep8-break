@@ -1,15 +1,15 @@
 <p>
-    For Stephan is hard to read an twisted text.
-    So Nicola and Sophia created the simple encoding rules for messages which should be hidden from Stephan.
-    Let's realize their algorithm.
+    Stephen is attempting to read a difficult and twisted chunk of text. Seeing his plight, Nikola and Sophia secretly
+    decided to help and created a simple encoding rule for all ship messages, which should be hidden from Stephan. Let's
+    help them to realize their algorithm.
 </p>
 
 <p>
-    You are given a text. Words contain only letters, numbers only digits.
-    So "2045th" is two constructions - the number 2045 and the word "th".
-    Words/numbers can be separated by whitespaces and punctuation symbols <strong>!#$%&()*+,-./:;<=>?@[\]^_`{|}~</strong>.
-    The text has only one line without newlines.
-    You should encode and twist the text with the next rules:
+    You are given a text. Words contain only letters, numbers only digits. So "2045th" is two constructions - the number
+    2045 and the word "th". Words/numbers can be separated by white-spaces and punctuation symbols
+    <strong>!#$%&()*+,-./:;<=>?@[\]^_`{|}~</strong>.
+    The text has only one line without any newlines. You should encode and twist the text using the following rules:
+
 </p>
 
 
@@ -18,7 +18,8 @@
         margin: 3px 0 3px 20px;
         list-style: disc;
     }
-    .rules li ul li{
+
+    .rules li ul li {
         list-style: square;
     }
 
@@ -31,7 +32,8 @@
         Swap letter case, uppercase to lowercase and versus.<br> "AsD" &rArr; "aSd".
     </li>
     <li>
-        Change each digit in numbers to the difference between 9 and the digit.<br> "140" &rArr; "859" (9-1=8, 9-4=5, 9-0=9).
+        Change each digit in numbers to the difference between 9 and the digit.<br> "140" &rArr; "859" (9-1=8, 9-4=5,
+        9-0=9).
     </li>
     <li>
         Replace some punctuation symbols to each other with the follow list:
@@ -53,16 +55,18 @@
 </ul>
 
 <p>
-    But one restriction. Your code should have no more than <strong>12 lines</strong> with
-    no more than <strong>80 symbols</strong> in each line.
-    "\t" is counted as 4 symbols.
+    There is one restriction however, to evade Stephens detection, your code should have no more than <strong>12
+    lines</strong> with no
+    more than <strong>80 symbols</strong> in each line and "\t" will be counted as 4 symbols.
+
 </p>
 
 <p>
-    And the main goal and fun. In this mission yoo should get the maximum <a href="http://dinsdale.python.org/dev/peps/pep-0008/">PEP8</a> errors.
-
-    We will check your code with the <a href="https://github.com/jcrocholl/pep8.git">pep8 module</a>
-    (<a href="https://github.com/jcrocholl/pep8/releases/tag/1.5.7">version 1.5.7</a>). So the PEP8 requirements are not too important here. Look at the module, it's more important for this mission.
+    Nikola and Sophia’s main goal is to have a bit of fun, so in this mission you should get the maximum number of
+    <a href="http://dinsdale.python.org/dev/peps/pep-0008/">PEP8</a> errors. We will check your code with the
+    <a href="https://github.com/jcrocholl/pep8.git">pep8 module</a>
+    (<a href="https://github.com/jcrocholl/pep8/releases/tag/1.5.7">version 1.5.7</a>)
+    and so the PEP8 requirements are not too important here. Take a look at the module- it's important for this mission.
     <br>
     For each error ("EXYZ") you will get 2 points, for each warning ("WXYZ") -- 1 points.
 </p>
@@ -73,7 +77,6 @@
 <p>
     <strong>Output: </strong> The twisted text as a string.
 </p>
-
 
 
 <div class="for_info_only">
@@ -92,9 +95,10 @@ twist(";-) 0_0 @__@") == ":-( 9_9 #__#"
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    Let's look at PEP8 more careful and examine the checking module for this.
-    If you will find some bugs, then you can help to improve this important library for python community.
-    You can create issues or patches for pep8 library.
+    Let's look at PEP8 more careful and examine the checking module for this. If you find some bugs, you can help to
+    improve this important library for python community. You can create issues or patches for pep8 library via 
+    <a href="https://github.com/">Github</a>.
+
 </p>
 
 <p>
