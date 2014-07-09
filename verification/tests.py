@@ -45,7 +45,7 @@ TESTS = {
         },
         {
             "input": "          ",
-            "answer": ""
+            "answer": " "
         },
         {
             "input": "A1bc2",
@@ -58,6 +58,24 @@ TESTS = {
         {
             "input": "!#$%&()*+,-./:;<=>?@[\]^_`{|}~",
             "answer": "?@$%&)(*+.-,/;:>=<!#]\[^_`}|{~"
+        },
+    ],
+    "Extra": [
+        {
+            "input": "pep8 requirements!?!",
+            "answer": "PEP1 STNEMERIUQER?!?"
+        },
+        {
+            "input": "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+            "answer": "RAf RAF YAWA. DNIHEB EHT DROW SNIATNUOM. RAF MORF EHT SEIRTNUOC AILAKOv DNA AITNANOSNOc. EREHT EVIL EHT DNILB STXET,"
+        },
+        {
+            "input": "9+5*2-1=18",
+            "answer": "0+4*7-8=81"
+        },
+        {
+            "input": "PEP8? I don`t know anything about this.",
+            "answer": "pep1! i NOD`T WONK GNIHTYNA TUOBA SIHT,"
         },
     ]
 }
