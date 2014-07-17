@@ -15,7 +15,7 @@ MAX_LINE_LENGTH = 80
 def inspector(code, runner=None):
     lines = code.split("\n")
     if len(lines) > MAX_LINES:
-        return False, "Your code should have no more than 10 lines"
+        return False, "Your code should have no more than 12 lines"
     if any(len(line.replace("\t", "    ")) > MAX_LINE_LENGTH for line in lines):
         return False, "Each line should be no more than 80 symbols."
     return True, None
