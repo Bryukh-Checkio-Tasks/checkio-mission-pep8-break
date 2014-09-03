@@ -2,9 +2,9 @@ def twist(text):
     return text
 if __name__ == '__main__':
     # These "asserts" using only for self-checking and not necessary for auto-testing
-    assert twist("Hello World!") == "OLLEh DLROw?"
-    assert twist("I'm 1st") == "i'M 8TS"
-    assert twist("How are you? 905th.") == "WOh ERA UOY! 094HT,"
-    assert twist("The code - ([{<;#>}])") == "EHt EDOC - )]}>:@<{[("
-    assert twist("EMAIL        a@b.ru") == "liame A#B,UR"
-    assert twist(";-) 0_0 @__@") == ":-( 9_9 #__#"
+    assert twist(u"Hello World!") == "OLLEh DLROw?"
+    assert twist(u"I'm 1st") == "i'M 8TS"
+    assert twist(u"How are you? 905th.") == "WOh ERA UOY! 094HT,"
+    assert twist(u"The code - ([{<;#>}])") == "EHt EDOC - )]}>:@<{[("
+    assert twist(u"EMAIL        a@b.ru") == "liame A#B,UR"
+    assert twist(u";-) 0_0 @__@") == ":-( 9_9 #__#"
