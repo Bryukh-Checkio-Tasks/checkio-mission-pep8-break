@@ -1,0 +1,69 @@
+<div class="story" style="margin-bottom: 20px">
+<p>&quot;D&eacute;jame contarte una peque&ntilde;a historia, Brewster. Cuando ten&iacute;a siete a&ntilde;os, mi pap&aacute; me atrap&oacute; fumando. Como resultado, me encerraron en un closet durante dos d&iacute;as y dos noches sin otra cosa que una caja de cigarros y una caja de cerillas. Nada de comida, Brewster. Nada de agua. Solo esos malditos cigarrillos. Mi papa no me dej&oacute; salir hasta que termin&eacute; el &uacute;ltimo de ellos. &iexcl;Este infierno me ense&ntilde;&oacute; una gran lecci&oacute;n! Voy a hacer contigo lo que mi pap&aacute; me hizo a m&iacute;. &quot;</p>
+
+<p style="float: right">Rupert Horn<br />
+&quot;<a href="http://www.imdb.com/title/tt0088850/?ref_=ttqt_qt_tt">Brewster&#39;s millions</a>&quot; (1985)</p>
+
+<div style="clear: both">&nbsp;</div>
+</div>
+
+<p>Stephen est&aacute; tratando de leer un trozo de texto complicado y retorcido. Al ver esta situaci&oacute;n, Nikola y Sophia decidieron ayudar de manera secreta. Para esto, crearon una regla de codificaci&oacute;n simple para todos los mensajes expedidos, que deber&aacute; permanecer oculta para Stephan. &iexcl;Vamos a ayudarles a completar su algoritmo!</p>
+
+<p>Se te dar&aacute; un texto, cuyas palabras contienen s&oacute;lo letras, n&uacute;meros o d&iacute;gitos. De esta forma, &quot;2045th&quot; corresponde a dos elementos- el n&uacute;mero 2045 y la palabra &quot;th&quot;. Las palabras / n&uacute;meros pueden estar separados por espacios en blanco y signos de puntuaci&oacute;n <strong>!#$%&amp;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</strong>. El texto tiene una sola l&iacute;nea (sin saltos de l&iacute;nea). Deber&aacute;s codificar y mezclar el texto utilizando las siguientes reglas:</p>
+<style type="text/css">.rules li {
+        margin: 3px 0 3px 20px;
+        list-style: disc;
+    }
+    .rules li ul li {
+        list-style: square;
+    }
+</style>
+<ul class="rules">
+	<li>Invierte cada palabra<br />
+	&quot;Hello&quot; &rArr; &quot;olleH&quot;.</li>
+	<li>Cambia may&uacute;sculas a min&uacute;sculas y viceversa.<br />
+	&quot;AsD&quot; &rArr; &quot;aSd&quot;.</li>
+	<li>Cambia cada d&iacute;gito en un n&uacute;mero, con la diferencia entre 9 y el d&iacute;gito.<br />
+	&quot;140&quot; &rArr; &quot;859&quot; (9-1=8, 9-4=5, 9-0=9).</li>
+	<li>Reemplaza algunos signos de puntuaci&oacute;n de acuerdo a la siguiente lista:
+	<ul>
+		<li>&quot;,&quot; &hArr; &quot;.&quot;</li>
+		<li>&quot;!&quot; &hArr; &quot;?&quot;</li>
+		<li>&quot;(&quot; &hArr; &quot;)&quot;</li>
+		<li>&quot;{&quot; &hArr; &quot;}&quot;</li>
+		<li>&quot;[&quot; &hArr; &quot;]&quot;</li>
+		<li>&quot;&lt;&quot; &hArr; &quot;&gt;&quot;</li>
+		<li>&quot;@&quot; &hArr; &quot;#&quot;</li>
+		<li>&quot;;&quot; &hArr; &quot;:&quot;</li>
+	</ul>
+	</li>
+	<li>Trunca varios espacios en blanco consecutivos en uno.<br />
+	&quot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot; &rArr; &quot;&nbsp;&quot;.</li>
+</ul>
+
+<p>Sin embargo hay una restricci&oacute;n. Para evitar que Stephen se percate de la situaci&oacute;n, tu c&oacute;digo no deber&aacute; tener m&aacute;s de <strong>12 lineas</strong> y no m&aacute;s de <strong>80 s&iacute;mbolos </strong> en cada l&iacute;nea. &quot;\ t&quot; ser&aacute; contabilizado como 4 s&iacute;mbolos.</p>
+
+<p>El objetivo principal Nikola y de Sophia es divertirse un poco, por lo que en esta misi&oacute;n deber&aacute;s obtener el m&aacute;ximo n&uacute;mero de <a href="http://dinsdale.python.org/dev/peps/pep-0008/">errores PEP8</a>. Verificaremos tu c&oacute;digo con un <a href="https://github.com/jcrocholl/pep8.git">m&oacute;dulo PEP8</a> (<a href="https://github.com/jcrocholl/pep8/releases/tag/1.5.7">version 1.5.7</a>) y por lo tanto, los requisitos PEP8 no son demasiado importantes aqu&iacute;. Echa un vistazo al m&oacute;dulo, que es muy importante para esta misi&oacute;n.<br />
+Por cada error (&quot;EXYZ&quot;) obtendr&aacute;s 2 puntos y por cada advertencia (&quot;WXYZ&quot;) 1 punto.</p>
+
+<p><strong>Datos de Entrada: </strong> Un texto, como una cadena (unicode).</p>
+
+<p><strong>Salida: </strong> El texto codificado, como una cadena (str).</p>
+
+<div class="for_info_only">
+<p><strong>Ejemplo:</strong></p>
+
+<pre class="brush: python">
+twist(&quot;Hello World!&quot;) == &quot;OLLEh DLROw?&quot;
+twist(&quot;I`m 1st&quot;) == &quot;i`M 8TS&quot;
+twist(&quot;How are you? 905th.&quot;) == &quot;WOh ERA UOY! 094HT,&quot;
+twist(&quot;The code - ([{&lt;;#&gt;}])&quot;) == &quot;EHt EDOC - )]}&gt;:@&lt;{[(&quot;
+twist(&quot;EMAIL        a@b.ru&quot;) == &quot;liame A#B,UR&quot;
+twist(&quot;;-) 0_0 @__@&quot;) == &quot;:-( 9_9 #__#&quot;
+    </pre>
+</div>
+
+<p class="for_info_only"><strong>&iquest;C&oacute;mo se usa?: </strong> Echemos un vistazo m&aacute;s cuidadoso al PEP8 m&aacute;s cuidadosos y examinemos el m&oacute;dulo de verificaci&oacute;n disponible. Si encuentras algunos errores (bugs), podr&iacute;as ayudar al progreso de esta importante biblioteca para la comunidad Python. Puedes reportar problemas o enviar parches para la biblioteca PEP8 a trav&eacute;s de <a href="https://github.com/">Github</a>.</p>
+
+<p><strong>Condiciones:</strong><br />
+0 &le; texto&lt; 1000</p>
